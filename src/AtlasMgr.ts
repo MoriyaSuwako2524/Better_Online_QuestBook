@@ -32,6 +32,27 @@ export class AtlasMgr {
 		this.loadConfig(cb);
 	}
 
+	private _supportAvif: number = -1;
+
+	/**是否支持avif格式 */
+	supportAvif(): boolean {
+		if (this._supportAvif == -1) {
+			try {
+				const canvas = document.createElement("canvas");
+				if (canvas.toDataURL("image/avif").indexOf("data:image/avif") === 0) {
+					this._supportAvif = 1;
+				} else {
+					this._supportAvif = 0;
+				};
+			} catch {
+				this._supportAvif = 0;
+			}
+		}
+		return this._supportAvif == 1;
+
+	}
+
+
 	/** 加载图集配置文件 */
 	private loadConfig(cb: () => void) {
 		let url = ProjectConfig.atlasPath;
