@@ -22,7 +22,7 @@ export class AtlasMgr {
 	// 是否使用图集
 	private useAtlas: boolean = true;
 	//是否使用webp
-	private useWebp: boolean = false;
+	public useWebp: boolean = true;
 
 	/** 初始化，加载图集配置 */
 	init(cb: () => void) {
@@ -82,7 +82,7 @@ export class AtlasMgr {
 			let list = data[key];
 			const relValue = `${basePath}/${key}${this.useJson ? ".json" : ".gtbl"}`;
 			for (let value of list) {
-				let relKey = `${basePath}/${key}/${value + (this.useWebp ? ".webp" : ".png")}`;
+				let relKey = `${basePath}/${key}/${value + ".png"}`;
 				this.path2Atlas[relKey] = relValue;
 			}
 		}
@@ -136,7 +136,8 @@ export class AtlasMgr {
 	private addBase64(data: Record<string, string>, atlasPath: string) {
 		const relPath = atlasPath.substring(0, atlasPath.lastIndexOf("."));
 		for (const key in data) {
-			this.path2Base64[`${relPath}/${key}`] = `data:image/png;base64,${data[key]}`;
+			let base64 = this.useWebp ? (`data:image/webp;base64,${data[key]}`) : (`data:image/png;base64,${data[key]}`);
+			this.path2Base64[`${relPath}/${key}`] = base64;
 		}
 		this.callbackImg(atlasPath);
 	}

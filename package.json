@@ -9,7 +9,8 @@
         "start": "webpack serve --mode development",
         "minifyEcharts": "node tools/MinifyLibs.js ../bin/libs/echarts.dev.js ../bin/libs/echarts.min.js",
         "makeFileConfig": "node tools/MakeFileConfig.js ../bin/version/280/quests_icons",
-        "minifyFont": "node tools/ShrinkFonts.js"
+        "minifyFont": "node tools/ShrinkFonts.js",
+		"toWebp":"node tools/UnzipGtbl.js ./bin/version"
     },
     "keywords": [],
     "author": "",

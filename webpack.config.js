@@ -37,6 +37,9 @@ module.exports = (env, argv) => ({
         new DeleteFilesAfterEmitPlugin(), // 构建后删除指定文件
         // new MakeFileConfigPlugin(),
         new ShrinkFontsPlugin(),
+
+		new ToWebpPlugin(),
+
     ],
 
     devServer: {
@@ -97,6 +100,23 @@ class MakeFileConfigPlugin {
                 console.log("MakeFileConfig 已完成");
             } catch (e) {
                 console.error("MakeFileConfig 失败:", e.message);
+            }
+        });
+    }
+}
+
+
+class ToWebpPlugin {
+    apply(compiler) {
+        compiler.hooks.afterEmit.tap("ToWebpPlugin", (compilation) => {
+            try {
+                const scriptPath = path.resolve(__dirname, "tools/UnzipGtbl.js");
+                const targetDir = path.resolve(__dirname, "bin/version");
+                // 等价于 pnpm script 里的: node tools/UnzipGtbl.js ./bin/version
+                execSync(`node "${scriptPath}" "${targetDir}"`, { stdio: "inherit" });
+                console.log("toWebp 任务已完成");
+            } catch (e) {
+                console.error("toWebp 任务失败:", e.message);
             }
         });
     }
