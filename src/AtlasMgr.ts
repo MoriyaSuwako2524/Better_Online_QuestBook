@@ -1,5 +1,6 @@
 import { ProjectConfig } from "./ProjectConfig";
 import { ProjectData } from "./ProjectData";
+import { TipsMgr } from "./TipsMgr";
 
 /** 图集管理器 */
 export class AtlasMgr {
@@ -67,6 +68,10 @@ export class AtlasMgr {
 				this.loadedConfigPaths.add(url);
 				this.parseAtlasConfig(res, url);
 				cb?.();
+			}).catch(err => {
+				console.error("图集配置加载失败", err);
+				TipsMgr.showTips("图集配置加载失败");
+				cb?.();
 			});
 	}
 
@@ -77,7 +82,7 @@ export class AtlasMgr {
 			let list = data[key];
 			const relValue = `${basePath}/${key}${this.useJson ? ".json" : ".gtbl"}`;
 			for (let value of list) {
-				let relKey = `${basePath}/${key}/${value + this.useWebp ? ".webp" : ".png"}`;
+				let relKey = `${basePath}/${key}/${value + (this.useWebp ? ".webp" : ".png")}`;
 				this.path2Atlas[relKey] = relValue;
 			}
 		}
