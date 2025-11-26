@@ -38,7 +38,7 @@ module.exports = (env, argv) => ({
         // new MakeFileConfigPlugin(),
         new ShrinkFontsPlugin(),
 
-		new ToWebpPlugin(),
+		// new ToWebpPlugin(),
 
     ],
 
