@@ -158,14 +158,7 @@ export class MainPage {
                     if (questList) {
                         for (let i = 0; i < questList.length; i++) {
                             let quest = questList[i];
-                            quest.symbol =
-                                "image://version/" +
-                                versionCode +
-                                "/quests_icons/QuestIcon/" +
-                                key +
-                                "/" +
-                                Utils.processBase64ToDecimal(quest.quest_id) +
-                                (AtlasMgr.instance.useWebp ? ".webp" : ".png");
+                            quest.symbol = "image://version/" + versionCode + "/quests_icons/QuestIcon/" + key + "/" + Utils.processBase64ToDecimal(quest.quest_id);
                             qn[quest.title] = quest;
                             qid[quest.quest_id] = quest;
                             // //添加一个假任务
@@ -212,7 +205,7 @@ export class MainPage {
         });
         button.data("questData", quest);
         const img = $("<img>", { class: "questIcon" });
-        AtlasMgr.instance.setImgSrc(img[0] as HTMLImageElement, ProjectData.getPath(`quests_icons/QuestLineIcon/${quest.quest}${AtlasMgr.instance.useWebp ? ".webp" : ".png"}`));
+        AtlasMgr.instance.setImgSrc(img[0] as HTMLImageElement, ProjectData.getPath(`quests_icons/QuestLineIcon/${quest.quest}`));
         const txt = $("<span>", {
             text: ProjectData.language === lang.zh ? quest.title_zh : quest.title,
             class: "questText",

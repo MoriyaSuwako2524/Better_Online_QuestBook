@@ -76,12 +76,14 @@ export class AtlasMgr {
 
     /** 解析图集配置，建立路径映射 */
     private parseAtlasConfig(data: Record<string, string[]>, url: string) {
+        // url is likes version/280/quests_icons.json
         const basePath = url.substring(0, url.lastIndexOf("."));
+        // basePath is likes version/280/quests_icons
         for (const key in data) {
             let list = data[key];
             const relValue = `${basePath}/${key}${this.useJson ? ".json" : ".gtbl"}`;
             for (let value of list) {
-                let relKey = `${basePath}/${key}/${value + (this.useWebp ? ".webp" : ".png")}`;
+                let relKey = `${basePath}/${key}/${value}`;
                 this.path2Atlas[relKey] = relValue;
             }
         }
@@ -135,7 +137,7 @@ export class AtlasMgr {
         const relPath = atlasPath.substring(0, atlasPath.lastIndexOf("."));
         for (const key in data) {
             let base64 = this.useWebp ? `data:image/webp;base64,${data[key]}` : `data:image/png;base64,${data[key]}`;
-            this.path2Base64[`${relPath}/${key}`] = base64;
+            this.path2Base64[`${relPath}/${key.split(".")[0]}`] = base64;
         }
         this.callbackImg(atlasPath);
     }

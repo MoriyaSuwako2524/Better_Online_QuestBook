@@ -37,11 +37,11 @@ export class ProjectData {
 
     /**默认假任务配置 */
     static readonly fakeQuest = {
-        name: 5, //顺序
-        symbolSize: 29, //1.3倍
-        symbol: "image://static/not_main.png", //main或者notmain
-        x: 252.0, //任务一致
-        y: 180.0, //任务一致
+        name: 0, //顺序
+        symbolSize: 0, //1.3倍
+        symbol: "", //main或者notmain
+        x: 0, //任务一致
+        y: 0, //任务一致
         select: {
             disabled: true,
         },
