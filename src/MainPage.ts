@@ -268,6 +268,8 @@ export class MainPage {
     onKeyDown = (event: KeyboardEvent) => {
         if (event.key == "r") {
             QuestList.resetChart();
+        } else if (event.key == "h") {
+            this.toggleSidebar();
         }
     };
 
