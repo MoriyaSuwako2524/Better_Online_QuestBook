@@ -55,4 +55,5 @@ export type quest = {
     quest_id: string;
     tooltip: string;
     is_main: number;
+    parentSymbol?: string;
 };

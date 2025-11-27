@@ -162,11 +162,11 @@ export class MainPage {
                             qn[quest.title] = quest;
                             qid[quest.quest_id] = quest;
                             // //添加一个假任务
-                            let fakeQuest = Utils.deepClone(ProjectData.fakeQuest);
-                            fakeQuest.x = quest.x;
-                            fakeQuest.y = quest.y;
-                            fakeQuest.name = i; // quest.quest_id;
+                            // let fakeQuest = Utils.deepClone(ProjectData.fakeQuest);
+                            let fakeQuest: quest = Utils.deepClone(quest);
+                            fakeQuest.name = String(i); // quest.quest_id;
                             fakeQuest.symbolSize = Math.ceil(quest.symbolSize * 1.3);
+                            fakeQuest.parentSymbol = quest.symbol;
                             fakeQuest.symbol = "image://static/" + (quest.is_main == 1 ? "main" : "not_main") + ".png";
                             fakeQuestList.push(fakeQuest);
                         }
