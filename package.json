@@ -10,7 +10,7 @@
         "minifyEcharts": "node tools/MinifyLibs.js ../bin/libs/echarts.dev.js ../bin/libs/echarts.min.js",
         "makeFileConfig": "node tools/MakeFileConfig.js ../bin/version/280/quests_icons",
         "minifyFont": "node tools/ShrinkFonts.js",
-		"toWebp":"node tools/UnzipGtbl.js ./bin/version"
+        "toWebp": "node tools/UnzipGtbl.js ./bin/version"
     },
     "keywords": [],
     "author": "",
@@ -35,6 +35,7 @@
         "typescript": "^5.7.3",
         "webpack": "^5.98.0",
         "webpack-cli": "^6.0.1",
-        "webpack-dev-server": "^4.0.0"
+        "webpack-dev-server": "^4.0.0",
+        "node-forge": "^1.3.2"
     }
 }
