@@ -35,12 +35,12 @@ export class QuestList {
             this.echarts = echarts.init(document.getElementById("this_chart") as HTMLDivElement, "white", { renderer: "canvas" });
             this.echarts.on("click", (params: any) => {
                 if (params.dataType === "node") {
-                    if (params.data.hasOwnProperty("quest_id")) {
-                        PopMgr.showPopup(params.data);
-                    } else if (params.data.hasOwnProperty("parentSymbol")) {
+                    if (params.data.hasOwnProperty("parentSymbol")) {
                         let data: quest = Utils.deepClone(params.data);
                         data.symbol = data.parentSymbol!;
                         PopMgr.showPopup(data);
+                    } else if (params.data.hasOwnProperty("quest_id")) {
+                        PopMgr.showPopup(params.data);
                     }
                 }
             });
