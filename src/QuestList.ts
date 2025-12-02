@@ -88,7 +88,8 @@ export class QuestList {
 						</div>
 					`);
                     const img = item.find(".searchImg")[0] as HTMLImageElement;
-                    AtlasMgr.instance.setImgSrc(img, `${quest.symbol.replace("image://", "")}`);
+                    let url = quest.parentSymbol ? quest.parentSymbol.replace("image://", "") : quest.symbol.replace("image://", "");
+                    AtlasMgr.instance.setImgSrc(img, url);
                     item.off("click");
                     item.on("click", () => {
                         PopMgr.showPopup(quest);
