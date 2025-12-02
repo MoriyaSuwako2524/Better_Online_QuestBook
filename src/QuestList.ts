@@ -79,7 +79,7 @@ export class QuestList {
     static showSearchList() {
         if (this.questList && this.questList.length) {
             this.questList.forEach((quest) => {
-                if (!quest.isFake) {
+                if (quest && quest.parentSymbol == undefined) {
                     const item = $(`
 						<div class="searchItem" data-id="${quest.quest_id}">
 							<img class="searchImg" />
@@ -88,8 +88,7 @@ export class QuestList {
 						</div>
 					`);
                     const img = item.find(".searchImg")[0] as HTMLImageElement;
-                    let url = quest.parentSymbol ? quest.parentSymbol.replace("image://", "") : quest.symbol.replace("image://", "");
-                    AtlasMgr.instance.setImgSrc(img, url);
+                    AtlasMgr.instance.setImgSrc(img, quest.symbol.replace("image://", ""));
                     item.off("click");
                     item.on("click", () => {
                         PopMgr.showPopup(quest);

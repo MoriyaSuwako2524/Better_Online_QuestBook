@@ -161,11 +161,9 @@ export class MainPage {
                             quest.symbol = "image://version/" + versionCode + "/quests_icons/QuestIcon/" + key + "/" + Utils.processBase64ToDecimal(quest.quest_id);
                             qn[quest.title] = quest;
                             qid[quest.quest_id] = quest;
-                            // //添加一个假任务
-                            // let fakeQuest = Utils.deepClone(ProjectData.fakeQuest);
+                            // 添加一个假任务作为背景
                             let fakeQuest: quest = Utils.deepClone(quest);
-							fakeQuest.isFake = true;
-                            fakeQuest.name = String(i); // quest.quest_id;
+                            fakeQuest.name = String(i);
                             fakeQuest.symbolSize = Math.ceil(quest.symbolSize * 1.3);
                             fakeQuest.parentSymbol = quest.symbol;
                             fakeQuest.symbol = "image://static/" + (quest.is_main == 1 ? "main" : "not_main") + ".png";
