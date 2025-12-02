@@ -164,6 +164,7 @@ export class MainPage {
                             // //添加一个假任务
                             // let fakeQuest = Utils.deepClone(ProjectData.fakeQuest);
                             let fakeQuest: quest = Utils.deepClone(quest);
+							fakeQuest.isFake = true;
                             fakeQuest.name = String(i); // quest.quest_id;
                             fakeQuest.symbolSize = Math.ceil(quest.symbolSize * 1.3);
                             fakeQuest.parentSymbol = quest.symbol;

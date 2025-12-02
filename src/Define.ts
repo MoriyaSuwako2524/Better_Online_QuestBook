@@ -56,4 +56,5 @@ export type quest = {
     tooltip: string;
     is_main: number;
     parentSymbol?: string;
+	isFake?: boolean;
 };

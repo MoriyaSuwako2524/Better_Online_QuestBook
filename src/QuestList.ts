@@ -79,7 +79,7 @@ export class QuestList {
     static showSearchList() {
         if (this.questList && this.questList.length) {
             this.questList.forEach((quest) => {
-                if (quest && quest.title !== undefined) {
+                if (!quest.isFake) {
                     const item = $(`
 						<div class="searchItem" data-id="${quest.quest_id}">
 							<img class="searchImg" />
