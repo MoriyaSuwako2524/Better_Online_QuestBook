@@ -156,9 +156,9 @@ export class Utils {
     static functioncolor(colorcod: string) {
         // 颜色代码返回对应的样式属性判断
         if (colorcod == "a") {
-            return "#55ff55"; // 返回对应的颜色
+            return "#50f050"; // 返回对应的颜色
         } else if (colorcod == "b") {
-            return "#4de6e6"; // 返回对应的颜色
+            return "#4be0e0"; // 返回对应的颜色
         } else if (colorcod == "c") {
             return "#ff5555"; // 返回对应的颜色
         } else if (colorcod == "d") {
