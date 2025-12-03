@@ -1,61 +1,59 @@
-
 /**任务栏 */
 export type questLine = {
-	title: string;
-	quest: string;
-	icon: string;
-	title_zh?: string;
+    title: string;
+    quest: string;
+    icon: string;
+    title_zh?: string;
 };
 
-
-
 export type dialogMsg = {
-	content: string;
-	caller: any;
-	sure: Function | null;
-	cancel: Function | null;
-	onlySure: boolean;
-	title: string;
-	sureMsg: string;
-	cancelMsg: string;
+    content: string;
+    caller: any;
+    sure: Function | null;
+    cancel: Function | null;
+    onlySure: boolean;
+    title: string;
+    sureMsg: string;
+    cancelMsg: string;
 };
 
 export enum localEnum {
-	/**上次选中的版本 */
-	selectVersionIndex = "selectVersionIndex",
-	/**上次选中的任务下标 */
-	selectBtnIndex = "selectBtnIndex",
-	/**用户选中的语言 */
-	language = "language",
+    /**上次选中的版本 */
+    selectVersionIndex = "selectVersionIndex",
+    /**上次选中的任务下标 */
+    selectBtnIndex = "selectBtnIndex",
+    /**用户选中的语言 */
+    language = "language",
 }
 
 export enum lang {
-	zh = "zh",
-	en = "en",
+    zh = "zh",
+    en = "en",
 }
 
 /**所有的任务数据 */
 export type questAllData = {
-	[key: string]: questData;
+    [key: string]: questData;
 };
 /**单页任务数据 */
 export type questData = { data: quest[]; links: questLink[] };
 
 /**任务前置 */
 export type questLink = {
-	source: string;
-	target: string;
+    source: string;
+    target: string;
 };
 /**任务数据 */
 export type quest = {
-	title: string;
-	name: string;
-	symbolSize: number;
-	symbol: string;
-	x: number;
-	y: number;
-	data: string;
-	quest_id: string;
-	tooltip: string;
-	is_main: number;
+    title: string;
+    name: string;
+    symbolSize: number;
+    symbol: string;
+    x: number;
+    y: number;
+    data: string;
+    quest_id: string;
+    tooltip: string;
+    is_main: number;
+    parentSymbol?: string;
 };

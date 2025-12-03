@@ -7,20 +7,20 @@ export class SwitchStyle {
     constructor() {
         let isMobile: isMobile = (window as any).isMobile;
         if (isMobile.phone) {
-            this.loadStylesheet('mobile.css');
+            this.loadStylesheet("mobile.css");
         } else {
-            this.loadStylesheet('desktop.css');
+            this.loadStylesheet("desktop.css");
         }
     }
 
     loadStylesheet(filename: string) {
-        const linkId = 'dynamic-css';
+        const linkId = "dynamic-css";
         let stylesheet: any = document.getElementById(linkId);
 
         if (!stylesheet) {
-            stylesheet = document.createElement('link');
+            stylesheet = document.createElement("link");
             stylesheet.id = linkId;
-            stylesheet.rel = 'stylesheet';
+            stylesheet.rel = "stylesheet";
             document.head.appendChild(stylesheet);
         }
 
@@ -29,7 +29,6 @@ export class SwitchStyle {
         }
     }
 }
-
 
 //------------------------JS---------------------------
 // (function () {
