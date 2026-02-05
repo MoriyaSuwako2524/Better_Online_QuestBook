@@ -1,0 +1,52 @@
+{
+  "WelcomeQuests": {
+    "data": [
+      {
+        "name": "Welcome",
+        "symbolSize": 60,
+        "symbol": "",
+        "x": 200,
+        "y": 150,
+        "data": "§e欢迎来到你的任务书！§r<br/><br/>这是第一个任务。<br/><br/>点击右边的任务继续。",
+        "quest_id": "welcome_1770322580",
+        "title": "§6§l欢迎！§r",
+        "is_main": 1,
+        "tooltip": {
+          "show": true
+        }
+      },
+      {
+        "name": "GettingStarted",
+        "symbolSize": 50,
+        "symbol": "",
+        "x": 350,
+        "y": 150,
+        "data": "§a开始你的旅程§r<br/><br/>这是第二个任务。<br/><br/>你可以继续添加更多任务。",
+        "quest_id": "gettingstarted_1770322580",
+        "title": "§a开始吧",
+        "is_main": 1,
+        "tooltip": {
+          "show": true
+        }
+      }
+    ],
+    "links": [
+      {
+        "source": "Welcome",
+        "target": "GettingStarted",
+        "symbol": [
+          "none",
+          "arrow"
+        ],
+        "lineStyle": {
+          "color": "#00c800",
+          "width": 4
+        },
+        "symbolSize": [
+          0,
+          10
+        ]
+      }
+    ]
+  }
+}

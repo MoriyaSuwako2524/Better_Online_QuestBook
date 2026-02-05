@@ -1,0 +1,52 @@
+{
+  "WelcomeQuests": {
+    "data": [
+      {
+        "name": "Welcome",
+        "symbolSize": 60,
+        "symbol": "",
+        "x": 200,
+        "y": 150,
+        "data": "§eWelcome to your questbook!§r<br/><br/>This is the first quest.<br/><br/>Click the quest on the right to continue.",
+        "quest_id": "welcome_1770322580",
+        "title": "§6§lWelcome!§r",
+        "is_main": 1,
+        "tooltip": {
+          "show": true
+        }
+      },
+      {
+        "name": "GettingStarted",
+        "symbolSize": 50,
+        "symbol": "",
+        "x": 350,
+        "y": 150,
+        "data": "§aStart your journey§r<br/><br/>This is the second quest.<br/><br/>You can add more quests.",
+        "quest_id": "gettingstarted_1770322580",
+        "title": "§aGetting Started",
+        "is_main": 1,
+        "tooltip": {
+          "show": true
+        }
+      }
+    ],
+    "links": [
+      {
+        "source": "Welcome",
+        "target": "GettingStarted",
+        "symbol": [
+          "none",
+          "arrow"
+        ],
+        "lineStyle": {
+          "color": "#00c800",
+          "width": 4
+        },
+        "symbolSize": [
+          0,
+          10
+        ]
+      }
+    ]
+  }
+}
