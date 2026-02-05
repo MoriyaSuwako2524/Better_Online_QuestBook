@@ -3,8 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # 或 main，根据你的主分支名称
-  workflow_dispatch:  # 允许手动触发
+      - master
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -31,7 +31,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: latest
 
       - name: Get pnpm store directory
         shell: bash
@@ -47,7 +47,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build file config
         run: pnpm run makeFileConfig
@@ -55,14 +55,14 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      - name: Minify fonts (optional)
+      - name: Minify fonts
         run: pnpm run minifyFont || echo "Font minification skipped"
         continue-on-error: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'  # 或者项目的输出目录
+          path: './dist'
 
   deploy:
     environment:
