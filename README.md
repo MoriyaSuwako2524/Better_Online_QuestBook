@@ -1,6 +1,6 @@
 # Better Online QuestBook/更好的在线任务书
 
-## _by MCTBL & Grievous_Rain_
+## Origin:[Better Online QuestBook/更好的在线任务书](https://github.com/MCTBL/Better_Online_QuestBook) _by MCTBL & Grievous_Rain_
 
 ![now](pic/now.png)
 
